@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     app:cardElevation="7dp"
     app:cardCornerRadius="14dp"
     android:layout_margin="3dp"
@@ -12,167 +12,223 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="280dp"
         android:orientation="vertical"
         android:padding="3dp"
         android:layout_margin="3dp"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="3dp"
         android:background="#FFFDFC">
-        <Button
-            android:id="@+id/option_btn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@drawable/option_icon"
-            android:gravity="center"
-            android:layout_gravity="end"
-            android:padding="1dp"
-            android:layout_margin="1dp"
-            />
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="center">
+        <ImageView
+            android:id="@+id/profile_iv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/heart_full"
+            android:textSize="20dp"
+            android:background="#FFFFFF"
+            android:gravity="center_vertical"
+            android:scaleType="fitCenter"
+            android:padding="1dp"
+            android:layout_margin="1dp"/>
+
+        <TextView
+            android:id="@+id/userName_TV"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:layout_weight="3"
+            android:hint="User Name"
+            android:gravity="center_vertical"
+            android:padding="1dp"
+            android:textColor="#041A97"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/submit_date_TV"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="2"
+            android:gravity="end"
+            android:layout_gravity="end"
+            android:layout_margin="1dp"
+            android:hint="20/01/11"
+            android:textSize="20sp"
+            android:padding="1dp"
+            android:textColor="#041A97"
+            />
+
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="center">
+            <SeekBar
+                android:id="@+id/seekbar"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:src="@drawable/heart_full"
+                android:textSize="20dp"
+                android:background="#FFFFFF"
+                android:gravity="center_vertical"
+                android:padding="1dp"
+                android:layout_margin="1dp"/>
+
+            <TextView
+                android:id="@+id/seekbar_time"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:layout_gravity="end"
+                android:layout_margin="1dp"
+                android:hint="20 minute"
+                android:textSize="20sp"
+                android:padding="1dp"
+                android:textColor="#041A97"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
             android:orientation="vertical"
             android:background="#E7E7E7">
 
             <TextView
                 android:id="@+id/title_tv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="2"
                 android:background="#FFFDFC"
                 android:gravity="center_vertical"
                 android:text="some questions?"
                 android:textColor="#041A97"
-                android:textSize="25dp"
+                android:textSize="22dp"
                 android:padding="1dp"
                 android:layout_margin="1dp"
                 />
-
-            <RadioGroup
-                android:id="@+id/decision_rg"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
                 android:orientation="horizontal">
-                <RadioButton
+
+
+                <ImageView
+                    android:id="@+id/agree_Check"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:src="@drawable/ic_check_agree"
+                    android:textSize="20dp"
+                    android:background="#FFFFFF"
+                    android:gravity="left"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="left"
+                    android:padding="1dp"
+                    android:layout_margin="1dp"/>
+
+                <TextView
+                    android:id="@+id/resultMessage_TV"
+                    android:layout_width="0dp"
+                    android:layout_height="27dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="1dp"
+                    android:layout_weight="4"
+                    android:gravity="center_vertical"
+                    android:hint="You agree this vote"
+                    android:padding="1dp"
+                    android:textColor="#041A97"
+                    android:textSize="22sp" />
+            </LinearLayout>
+            <RadioGroup
+                android:id="@+id/decision_rg"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:orientation="vertical">
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
                     android:text="Agree"
+                    android:layout_gravity="center_vertical"
                     android:background="#FFFDFC"
                     android:textSize="22sp"
                     android:padding="1dp"
                     android:layout_margin="1dp"/>
                 <RadioButton
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
                     android:layout_margin="1dp"
                     android:layout_weight="1"
                     android:background="#FFFDFC"
+                    android:layout_gravity="center_vertical"
                     android:padding="1dp"
                     android:text="Disagree"
                     android:textSize="22sp" />
 
             </RadioGroup>
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <EditText
-                        android:visibility="visible"
-                        android:id="@+id/agreeComment_et"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="why are you agree?"
-                        android:textSize="20dp"
-                        android:background="#FFFFFF"
-                        android:gravity="center_vertical"
-                        android:padding="1dp"
-                        android:layout_margin="1dp"/>
-                    <EditText
-                        android:visibility="visible"
-                        android:id="@+id/disagreeComment_et"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="why are you disagree?"
-                        android:textSize="20dp"
-                        android:background="#FFFFFF"
-                        android:gravity="center_vertical"
-                        android:padding="1dp"
-                        android:layout_margin="1dp"/>
-
-                </LinearLayout>
-
-
-            </ScrollView>
         </LinearLayout>
-
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_gravity="center">
+                <EditText
+                    android:visibility="visible"
+                    android:id="@+id/agreeComment_et"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:hint="Comment"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="20dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center_vertical"
+                    android:padding="1dp"
+                    android:layout_margin="1dp"/>
+                <Button
+                    android:visibility="visible"
+                    android:id="@+id/submit_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="50sp"
+                    android:layout_weight="1"
+                    android:text="Submit"
+                    android:textSize="22sp"
+                    android:textColor="#FFFFFF"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:padding="1dp"
+                    android:layout_margin="1dp"
+                    android:theme="@style/submit_button_style"
+                    android:background="@drawable/submit_button"/>
 
-            <ImageView
-                android:id="@+id/heart_iv"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:textSize="22sp"
-                android:textColor="#FFFFFF"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:padding="1dp"
-                android:layout_margin="1dp"
-                android:theme="@style/submit_button_style"
-                android:background="@drawable/heart"
-                android:scaleType="fitCenter"/>
-            <ImageView
-                android:visibility="gone"
-                android:id="@+id/heartFull_iv"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:textSize="22sp"
-                android:textColor="#FFFFFF"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:padding="1dp"
-                android:layout_margin="1dp"
-                android:theme="@style/submit_button_style"
-                android:background="@drawable/heart_full"
-                android:scaleType="fitCenter"/>
-            <TextView
-                android:id="@+id/likecount_tv"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:text="(60)"
-                android:textColor="#0F0F0F"
-                android:textStyle="bold"
-                android:textSize="22sp"
-                android:gravity="center_vertical"
-                android:layout_gravity="center"
-                android:padding="1dp"
-                android:paddingStart="5dp"
-                android:layout_margin="1dp"
-                />
-            <Button
-                android:id="@+id/submit_btn"
-                android:layout_width="120dp"
-                android:layout_height="50dp"
-                android:layout_weight="2"
-                android:text="Submit"
-                android:textSize="22sp"
-                android:textColor="#FFFFFF"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:padding="1dp"
-                android:layout_margin="1dp"
-                android:theme="@style/submit_button_style"
-                android:background="@drawable/submit_button"
-                />
-        </LinearLayout>
+            </LinearLayout>
+
+
+        </ScrollView>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

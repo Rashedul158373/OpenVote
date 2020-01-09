@@ -46,12 +46,12 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_margin="1dp"
-            android:layout_weight="3"
+            android:layout_weight="6"
             android:hint="User Name"
             android:gravity="center_vertical"
             android:padding="1dp"
             android:textColor="#041A97"
-            android:textSize="22sp" />
+            android:textSize="19sp" />
 
         <TextView
             android:id="@+id/submit_date_TV"
@@ -62,7 +62,7 @@
             android:layout_gravity="end"
             android:layout_margin="1dp"
             android:hint="20/01/11"
-            android:textSize="20sp"
+            android:textSize="17sp"
             android:padding="1dp"
             android:textColor="#041A97"
             />
@@ -96,7 +96,7 @@
                 android:layout_gravity="end"
                 android:layout_margin="1dp"
                 android:hint="20 minute"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:padding="1dp"
                 android:textColor="#041A97"
                 />
@@ -110,6 +110,7 @@
             android:background="#E7E7E7">
 
             <TextView
+                android:visibility="visible"
                 android:id="@+id/title_tv"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -118,7 +119,7 @@
                 android:gravity="center_vertical"
                 android:text="some questions?"
                 android:textColor="#041A97"
-                android:textSize="22dp"
+                android:textSize="19dp"
                 android:padding="1dp"
                 android:layout_margin="1dp"
                 />
@@ -143,19 +144,47 @@
                     android:layout_gravity="left"
                     android:padding="1dp"
                     android:layout_margin="1dp"/>
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/disagree_Check"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_check_disagree"
+                    android:textSize="20dp"
+                    android:background="#FFFFFF"
+                    android:gravity="left"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="left"
+                    android:padding="1dp"
+                    android:layout_margin="1dp"/>
 
                 <TextView
-                    android:id="@+id/resultMessage_TV"
+                    android:visibility="visible"
+                    android:id="@+id/agreeMessage_TV"
                     android:layout_width="0dp"
                     android:layout_height="27dp"
                     android:layout_gravity="center"
                     android:layout_margin="1dp"
                     android:layout_weight="4"
                     android:gravity="center_vertical"
-                    android:hint="You agree this vote"
+                    android:text="You agree this vote"
                     android:padding="1dp"
-                    android:textColor="#041A97"
-                    android:textSize="22sp" />
+                    android:textColor="#00000A"
+                    android:textSize="18dp" />
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/disagreeMessage_TV"
+                    android:layout_width="0dp"
+                    android:layout_height="27dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="1dp"
+                    android:layout_weight="4"
+                    android:gravity="center_vertical"
+                    android:text="You disagree this vote"
+                    android:padding="1dp"
+                    android:textColor="#00000A"
+                    android:textSize="18dp" />
             </LinearLayout>
             <RadioGroup
                 android:id="@+id/decision_rg"
@@ -170,7 +199,7 @@
                     android:text="Agree"
                     android:layout_gravity="center_vertical"
                     android:background="#FFFDFC"
-                    android:textSize="22sp"
+                    android:textSize="18dp"
                     android:padding="1dp"
                     android:layout_margin="1dp"/>
                 <RadioButton
@@ -182,7 +211,7 @@
                     android:layout_gravity="center_vertical"
                     android:padding="1dp"
                     android:text="Disagree"
-                    android:textSize="22sp" />
+                    android:textSize="18dp" />
 
             </RadioGroup>
         </LinearLayout>
@@ -204,7 +233,7 @@
                     android:layout_weight="3"
                     android:hint="Comment"
                     android:layout_gravity="center_vertical"
-                    android:textSize="20dp"
+                    android:textSize="18dp"
                     android:background="#FFFFFF"
                     android:gravity="center_vertical"
                     android:padding="1dp"
@@ -216,7 +245,7 @@
                     android:layout_height="50sp"
                     android:layout_weight="1"
                     android:text="Submit"
-                    android:textSize="22sp"
+                    android:textSize="18sp"
                     android:textColor="#FFFFFF"
                     android:gravity="center"
                     android:layout_gravity="center"

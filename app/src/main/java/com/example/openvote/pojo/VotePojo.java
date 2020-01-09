@@ -1,31 +1,33 @@
 package com.example.openvote.pojo;
 
+import com.example.openvote.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class VotePojo {
-    private String profilePic, userName, date, seekbar, seekbartime, question, agree, disagree, comment;
+    private int profilePic;
+    private String userName, date, seekbar, seekbartime, question, desition, comment;
 
     public VotePojo() {
     }
 
-    public VotePojo(String profilePic, String userName, String date, String seekbar, String seekbartime, String question, String agree, String disagree, String comment) {
+    public VotePojo(int profilePic, String userName, String date, String seekbar, String seekbartime, String question, String desition, String comment) {
         this.profilePic = profilePic;
         this.userName = userName;
         this.date = date;
         this.seekbar = seekbar;
         this.seekbartime = seekbartime;
         this.question = question;
-        this.agree = agree;
-        this.disagree = disagree;
+        this.desition = desition;
         this.comment = comment;
     }
 
-    public String getProfilePic() {
+    public int getProfilePic() {
         return profilePic;
     }
 
-    public void setProfilePic(String profilePic) {
+    public void setProfilePic(int profilePic) {
         this.profilePic = profilePic;
     }
 
@@ -69,20 +71,12 @@ public class VotePojo {
         this.question = question;
     }
 
-    public String getAgree() {
-        return agree;
+    public String getDesition() {
+        return desition;
     }
 
-    public void setAgree(String agree) {
-        this.agree = agree;
-    }
-
-    public String getDisagree() {
-        return disagree;
-    }
-
-    public void setDisagree(String disagree) {
-        this.disagree = disagree;
+    public void setDesition(String desition) {
+        this.desition = desition;
     }
 
     public String getComment() {
@@ -91,5 +85,12 @@ public class VotePojo {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public static List<VotePojo> getVote(){
+        List<VotePojo> votePojos = new ArrayList<>();
+        votePojos.add(new VotePojo(R.drawable.heart_full, "Dip Mondol","9/01/20","","","Do you agree?","",""));
+        votePojos.add(new VotePojo(R.drawable.heart_full, "Nahiyan","7/01/20","","","Do you agree?","",""));
+        return votePojos;
     }
 }

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "207021507615",
+    "firebase_url": "https://openvote-86df2.firebaseio.com",
+    "project_id": "openvote-86df2",
+    "storage_bucket": "openvote-86df2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207021507615:android:bf065907c4d22c73f0812a",
+        "android_client_info": {
+          "package_name": "com.example.openvote"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "207021507615-v68ogvii5p9htu1s652m0v7223a1k0ap.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.openvote",
+            "certificate_hash": "cbe5af992854247923ecf58ec5b06bb2069e4700"
+          }
+        },
+        {
+          "client_id": "207021507615-t37191tlnf8tp2c9l45e59ra9hu167rb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCidfDrPNUmR1Es_z_dY5eJzYknK9rju3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "207021507615-t37191tlnf8tp2c9l45e59ra9hu167rb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

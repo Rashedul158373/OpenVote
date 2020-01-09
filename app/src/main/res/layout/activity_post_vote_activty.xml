@@ -11,13 +11,13 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Question"
+        android:hint="Pool Title"
         android:textColor="@color/black" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Lifetime"
+        android:hint="Lifetime of the Pool"
         android:textColor="@color/black" />
 
     <Button

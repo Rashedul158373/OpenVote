@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,6 +20,8 @@ public class RegisterActivity extends AppCompatActivity {
 
     private EditText userNameET, mobileNumberET, emailET, passwordET, confirmPasswordET;
     private Button registerBTN;
+    private TextView alreadyMember;
+
     String userName, mobileNumber, email, password, confirmPassword;
     private FirebaseAuth firebaseAuth;
 
@@ -43,6 +46,13 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Password didn't mached", Toast.LENGTH_SHORT).show();
                 }
 
+            }
+        });
+        alreadyMember.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegisterActivity.this,LogInActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -74,6 +84,7 @@ public class RegisterActivity extends AppCompatActivity {
         passwordET = findViewById(R.id.passwordETSU);
         confirmPasswordET = findViewById(R.id.confirmPasswordETSU);
         registerBTN = findViewById(R.id.registerBTNSU);
+        alreadyMember = findViewById(R.id.alreadyMemberId);
         firebaseAuth = FirebaseAuth.getInstance();
     }
 }

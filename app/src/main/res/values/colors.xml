@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#5A4A5A</color>
 
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="yellow">#FFDF00</color>
+
+    <style name="radioBtn_Color" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@android:color/holo_blue_light</item>
+        <item name="android:textColorPrimary">@android:color/darker_gray</item>
+
+
+    </style>
 </resources>

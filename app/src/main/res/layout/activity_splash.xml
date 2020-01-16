@@ -7,12 +7,28 @@
     tools:context=".SplashActivity"
     android:orientation="vertical"
     android:layout_gravity="center"
-    android:gravity="center">
+    android:gravity="center"
+    android:padding="25dp">
     <ImageView
         android:id="@+id/logo_id"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_centerInParent="true"
         android:src="@drawable/logo"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 %"
+        android:textColor="#008007"
+        android:textSize="25sp"/>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_gravity="bottom"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        />
 
 </LinearLayout>

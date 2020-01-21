@@ -96,7 +96,7 @@
                 android:textColor="#fff"
                 />
             <RadioGroup
-                android:id="@+id/radioBtnId"
+                android:id="@+id/genderRGSU"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="2"
@@ -161,6 +161,7 @@
                 android:layout_marginTop="24dp"
                 android:background="@drawable/bg_signup_btn"
                 android:clickable="true"
+                android:theme="@style/submit_button_style"
                 android:padding="16dp"
                 android:text="Sign UP"
                 android:textAllCaps="false"

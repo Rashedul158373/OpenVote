@@ -1,18 +1,7 @@
 package com.example.openvote.pojo;
 
 public class UserProfile {
-    private String userName, mobileNumber, email, password;
-
-
-    public UserProfile() {
-    }
-
-    public UserProfile(String userName, String mobileNumber, String email, String password) {
-        this.userName = userName;
-        this.mobileNumber = mobileNumber;
-        this.email = email;
-        this.password = password;
-    }
+    String userName, mobileNumber, email, dateOfBirth, gender ,password;
 
     public String getUserName() {
         return userName;
@@ -38,11 +27,39 @@ public class UserProfile {
         this.email = email;
     }
 
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public UserProfile() {
+    }
+
+    public UserProfile(String userName, String mobileNumber, String email, String dateOfBirth, String gender, String password) {
+        this.userName = userName;
+        this.mobileNumber = mobileNumber;
+        this.email = email;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
         this.password = password;
     }
 }

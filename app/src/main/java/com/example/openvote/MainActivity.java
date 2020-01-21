@@ -1,9 +1,10 @@
 package com.example.openvote;
 
+import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.openvote.adapter.VoteAdapter;
-import com.example.openvote.pojo.VotePojo;
+import com.example.openvote.adapter.CustomAdapertForHome;
+import com.example.openvote.pojo.Vote;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -12,14 +13,18 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.widget.SearchView;
+import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -29,39 +34,31 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.Menu;
+import android.widget.ImageView;
+import android.widget.Toast;
 
-import java.util.List;
+import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private RecyclerView recyclerView;
-    private LinearLayoutManager linearLayoutManager;
-    private VoteAdapter voteAdapter;
-    private SearchView searchView;
-    private FirebaseAuth mAuth;
-
-    private AppBarConfiguration mAppBarConfiguration;
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+    //declaration
+    private ImageView addVoteIV, menuIconIV;
+    private RecyclerView activeVoteRecyclerView;
+    private DatabaseReference databaseReference;
+    FirebaseAuth firebaseAuth;
+    private ArrayList<Vote> votes;
+    private CustomAdapertForHome customAdapertForHome;
+    private DrawerLayout mAppBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mAuth = FirebaseAuth.getInstance();
-        recyclerView = findViewById(R.id.recyclerView);
-        searchView = findViewById(R.id.titlesearchView);
-
-
-        recyclerView = findViewById(R.id.recyclerView);
-        List<VotePojo> votePojos = VotePojo.getVote();
-        voteAdapter = new VoteAdapter(votePojos);
-
-        linearLayoutManager = new LinearLayoutManager(this);
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(voteAdapter);
-
-
+        init();  //initialize declared elements
+        initRecyclerView();  //initialize recyclerview
+        getActiveVotes(); //get data from firebase
+        /*addVoteIV.setOnClickListener(this); //takes to new vote creation page
+        menuIconIV.setOnClickListener(this);*/
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -94,6 +91,96 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(MainActivity.this);
     }
 
+    //response to button click
+    @Override
+    public void onClick(View v) {
+        /*if (v.getId() == R.id.action_addVote) {
+            startActivity(new Intent(MainActivity.this, PostVoteActivty.class));
+        }
+
+        else if(v.getId()==R.id.action_notification){
+            firebaseAuth.signOut();
+            startActivity(new Intent(MainActivity.this, NotificationActivity.class));
+        }*/
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_addVote) {
+            startActivity(new Intent(MainActivity.this, PostVoteActivty.class));
+            return true;
+        }
+        if (id == R.id.action_notification) {
+            startActivity(new Intent(MainActivity.this, NotificationActivity.class));
+            return true;
+        }
+        if (id == R.id.action_logout){
+            firebaseAuth.signOut();
+            Intent intent = new Intent(MainActivity.this,LogInActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
+    //initialize declared elements
+    private void init() {
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        firebaseAuth = FirebaseAuth.getInstance();
+        activeVoteRecyclerView = findViewById(R.id.activeVoteRecyclerViewID);
+        votes = new ArrayList<>();
+        customAdapertForHome = new CustomAdapertForHome(votes);
+    }
+
+
+
+    //initialize recyclerview
+    private void initRecyclerView() {
+        activeVoteRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        activeVoteRecyclerView.setAdapter(customAdapertForHome);
+    }
+
+
+
+    //get data from firebase
+    private void getActiveVotes() {
+        votes.clear();
+
+        DatabaseReference activVoteRef = databaseReference.child("Votes");
+        activVoteRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
+                    for (DataSnapshot data: dataSnapshot.getChildren()){
+                        Vote vote = data.getValue(Vote.class);
+                        votes.add(vote);
+                        customAdapertForHome.notifyDataSetChanged();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
+
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -111,5 +198,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         return false;
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
     }
 }

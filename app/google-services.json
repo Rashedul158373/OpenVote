@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "207021507615",
-    "firebase_url": "https://openvote-86df2.firebaseio.com",
-    "project_id": "openvote-86df2",
-    "storage_bucket": "openvote-86df2.appspot.com"
+    "project_number": "780012159580",
+    "firebase_url": "https://openvote-31d22.firebaseio.com",
+    "project_id": "openvote-31d22",
+    "storage_bucket": "openvote-31d22.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:207021507615:android:bf065907c4d22c73f0812a",
+        "mobilesdk_app_id": "1:780012159580:android:bc04bbe694ebd936a09c99",
         "android_client_info": {
           "package_name": "com.example.openvote"
         }
       },
       "oauth_client": [
         {
-          "client_id": "207021507615-v68ogvii5p9htu1s652m0v7223a1k0ap.apps.googleusercontent.com",
+          "client_id": "780012159580-fp873klobq0mhturm1kk8epenujddoks.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.openvote",
@@ -23,20 +23,20 @@
           }
         },
         {
-          "client_id": "207021507615-t37191tlnf8tp2c9l45e59ra9hu167rb.apps.googleusercontent.com",
+          "client_id": "780012159580-obi8onprr828i40cpnsn2kq052d9rqbc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCidfDrPNUmR1Es_z_dY5eJzYknK9rju3I"
+          "current_key": "AIzaSyAOqh1Dkgp_ObFbbmJJ04FaGjOlIauSsaY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "207021507615-t37191tlnf8tp2c9l45e59ra9hu167rb.apps.googleusercontent.com",
+              "client_id": "780012159580-obi8onprr828i40cpnsn2kq052d9rqbc.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

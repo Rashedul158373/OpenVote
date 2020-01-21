@@ -15,12 +15,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LogInActivity extends AppCompatActivity {
 
     private EditText emailET, passwordET;
-    private Button loginBTN;
-    private Button signupBTN;
+    private Button loginBTN, goForSignUpBTN;
     private String email, password;
     private FirebaseAuth firebaseAuth;
 
@@ -28,21 +28,22 @@ public class LogInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
-
+        getSupportActionBar().hide();
         init();
+
         loginBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = emailET.getText().toString().trim();
-                String password = passwordET.getText().toString().trim();
+                email = emailET.getText().toString().trim();
+                password = passwordET.getText().toString().trim();
                 logIn(email, password);
             }
         });
-        signupBTN.setOnClickListener(new View.OnClickListener() {
+
+        goForSignUpBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LogInActivity.this,RegisterActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(LogInActivity.this, RegisterActivity.class));
             }
         });
 
@@ -51,31 +52,11 @@ public class LogInActivity extends AppCompatActivity {
 
     }
 
-    private void logIn( String email, String password) {
-        if(email.isEmpty()){
-            emailET.setError("Enter an email address");
-            emailET.requestFocus();
-            return;
-        }
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            emailET.setError("Enter a valid email address");
-            emailET.requestFocus();
-        }
-        if(password.isEmpty()){
-            passwordET.setError("Enter a password");
-            passwordET.requestFocus();
-            return;
-        }
-        if(password.length()<5){
-            passwordET.setError("Minimum length of password is 5");
-            passwordET.requestFocus();
-            return;
-        }
+    private void logIn(String email, String password) {
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(LogInActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-
                         if (task.isSuccessful()){
                             startActivity(new Intent(LogInActivity.this, MainActivity.class));
                         }
@@ -86,14 +67,21 @@ public class LogInActivity extends AppCompatActivity {
                 });
     }
 
-
     private void init() {
         emailET = findViewById(R.id.emailETLI);
         passwordET = findViewById(R.id.passwordETLI);
         loginBTN = findViewById(R.id.loginBTNLI);
-        signupBTN = findViewById(R.id.signupBTNLI);
         firebaseAuth = FirebaseAuth.getInstance();
+        goForSignUpBTN = findViewById(R.id.goForSignUpBTNLI);
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
 
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+        if (currentUser != null){
+            startActivity(new Intent(LogInActivity.this, MainActivity.class));
+        }
+    }
 }

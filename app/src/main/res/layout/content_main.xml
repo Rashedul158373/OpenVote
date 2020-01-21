@@ -17,19 +17,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/content_frame">
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/titlesearchView"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#ffff"
-            />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="5dp">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Current Votes"
+                android:textAlignment="center"
+                android:textColor="@color/text_color"
+                android:textSize="16sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/activeVoteRecyclerViewID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
 
     </FrameLayout>
 

@@ -24,7 +24,7 @@
         <activity android:name=".ContactUsActivity" />
         <activity android:name=".VoteInfoActivity" />
         <activity android:name=".PostVoteActivty" />
-        <activity android:name=".RegisterActivity" />
+        <activity android:name=".SignUpActivity" />
         <activity android:name=".LogInActivity" />
         <activity
             android:name=".MainActivity"

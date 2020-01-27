@@ -3,7 +3,7 @@ package com.example.openvote;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.openvote.adapter.CustomAdapertForHome;
+import com.example.openvote.adapter.AdapertForHome;
 import com.example.openvote.pojo.Vote;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -13,7 +13,6 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
@@ -35,7 +34,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.Menu;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -46,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DatabaseReference databaseReference;
     FirebaseAuth firebaseAuth;
     private ArrayList<Vote> votes;
-    private CustomAdapertForHome customAdapertForHome;
+    private AdapertForHome adapertForHome;
     private DrawerLayout mAppBarConfiguration;
 
     @Override
@@ -139,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         firebaseAuth = FirebaseAuth.getInstance();
         activeVoteRecyclerView = findViewById(R.id.activeVoteRecyclerViewID);
         votes = new ArrayList<>();
-        customAdapertForHome = new CustomAdapertForHome(votes);
+        adapertForHome = new AdapertForHome(votes, this);
     }
 
 
@@ -147,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //initialize recyclerview
     private void initRecyclerView() {
         activeVoteRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        activeVoteRecyclerView.setAdapter(customAdapertForHome);
+        activeVoteRecyclerView.setAdapter(adapertForHome);
     }
 
 
@@ -164,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     for (DataSnapshot data: dataSnapshot.getChildren()){
                         Vote vote = data.getValue(Vote.class);
                         votes.add(vote);
-                        customAdapertForHome.notifyDataSetChanged();
+                        adapertForHome.notifyDataSetChanged();
                     }
                 }
             }

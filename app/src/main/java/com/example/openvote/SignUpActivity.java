@@ -29,7 +29,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     private EditText userNameET, mobileNumberET, emailET, passwordET, confirmPasswordET;
     private RadioGroup genderRG;
-    private TextView goForSignUp, dateOfBirth_tv;
+    private TextView dateOfBirth_tv;
     private Button registerBTN;
     private String userName, mobileNumber, email, dateOfBirth, gender, password, confirmPassword;
     private FirebaseAuth firebaseAuth;
@@ -41,6 +41,7 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         getSupportActionBar().hide();
 
+        init();
         genderRG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -48,8 +49,14 @@ public class SignUpActivity extends AppCompatActivity {
                 gender= rb.getText().toString();
             }
         });
-        init();
 
+
+        dateOfBirth_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pickDate();
+            }
+        });
         registerBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,13 +68,6 @@ public class SignUpActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(SignUpActivity.this, "Password didn't mached", Toast.LENGTH_SHORT).show();
                 }
-
-                goForSignUp.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(new Intent(SignUpActivity.this, LogInActivity.class));
-                    }
-                });
 
 
             }
@@ -152,14 +152,13 @@ public class SignUpActivity extends AppCompatActivity {
     //init fields
     private void init() {
         genderRG = findViewById(R.id.genderRG);
-        userNameET = findViewById(R.id.userNameETSU);
-        mobileNumberET = findViewById(R.id.mobileNumberETSU);
-        goForSignUp = findViewById(R.id.goForSignUp);
-        emailET = findViewById(R.id.emailETSU);
+        userNameET = findViewById(R.id.userName_et);
+        mobileNumberET = findViewById(R.id.mobileNumber_et);
+        emailET = findViewById(R.id.email_et);
         dateOfBirth_tv = findViewById(R.id.dob_tv);
-        passwordET = findViewById(R.id.passwordETSU);
-        confirmPasswordET = findViewById(R.id.confirmPasswordETSU);
-        registerBTN = findViewById(R.id.registerBTNSU);
+        passwordET = findViewById(R.id.password_et);
+        confirmPasswordET = findViewById(R.id.confirmPassword_et);
+        registerBTN = findViewById(R.id.register_btn);
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
     }

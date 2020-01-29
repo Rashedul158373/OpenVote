@@ -8,160 +8,173 @@
     android:padding="10dp"
     tools:context=".SignUpActivity">
 
-    <EditText
-        android:id="@+id/userNameETSU"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/curve_background"
-        android:drawablePadding="12dp"
-        android:ems="10"
-        android:hint="Full Name"
-        android:inputType="text"
-        android:maxLines="1"
-        android:padding="8dp"
-        android:textColor="@color/text_color"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="70dp"
+        android:orientation="vertical">
 
-        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Wellcome"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                android:gravity="center_vertical"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="create your account!"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:gravity="center_vertical"/>
+        </LinearLayout>
+        <EditText
+            android:id="@+id/userName_et"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="Full Name"
+            android:textSize="18sp"
+            android:gravity="center_vertical"
+            android:textColor="#000000"
+            android:inputType="text"
+            android:maxLines="1"
 
+            />
+        <EditText
+            android:id="@+id/mobileNumber_et"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textColor="#000000"
+            android:hint="Mobile Number"
+            android:textSize="18sp"
+            android:gravity="center_vertical"
+            android:inputType="number"
+            android:maxLines="1"
+            android:maxLength="11"
 
-    <EditText
-        android:id="@+id/mobileNumberETSU"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/curve_background"
-        android:drawablePadding="12dp"
-        android:ems="10"
-        android:hint="Mobile Number"
-        android:inputType="number"
-        android:maxLines="1"
-        android:maxLength="11"
-        android:padding="8dp"
-        android:textColor="@color/text_color"
+            />
+        <EditText
+            android:id="@+id/email_et"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textColor="#000000"
+            android:hint="E-Mail"
+            android:textSize="18sp"
+            android:inputType="textEmailAddress"
+            android:gravity="center_vertical"
+            android:maxLines="1"
 
-        />
+            />
+        <TextView
+            android:id="@+id/dob_tv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textColor="#000000"
+            android:hint="DD/MM/YYYY"
+            android:textSize="18sp"
+            android:inputType="textEmailAddress"
+            android:gravity="center_vertical"
+            android:maxLines="1"
 
-
-    <EditText
-        android:id="@+id/emailETSU"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/curve_background"
-        android:drawablePadding="12dp"
-        android:ems="10"
-        android:hint="E-Mail"
-        android:inputType="textEmailAddress"
-        android:maxLines="1"
-        android:padding="8dp"
-        android:textColor="@color/text_color"
-
-        />
-
-    <TextView
-        android:id="@+id/dob_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/curve_background"
-        android:drawablePadding="12dp"
-        android:ems="10"
-        android:hint="DD/MM/YYYY"
-        android:inputType="textEmailAddress"
-        android:maxLines="1"
-        android:padding="8dp"
-        android:textColor="@color/text_color"
-
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:padding="8dp"
-        android:text="Gender"
-        android:textColor="@color/text_color"
-        android:textSize="20sp" />
-
-    <RadioGroup
-        android:id="@+id/genderRG"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <RadioButton
-            android:id="@+id/maleId"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textColor="#000000"
+            android:text="Gender"
+            android:gravity="center_vertical"
+            android:textSize="20sp" />
+        <RadioGroup
+            android:id="@+id/genderRG"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Male"
-            android:checked="true"
-            android:textColor="@color/text_color" />
+            android:layout_height="wrap_content">
 
-        <RadioButton
-            android:id="@+id/femaleId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Female"
-            android:textColor="@color/text_color" />
-    </RadioGroup>
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Male"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:textColor="#000000"
+                android:checked="true"
+                />
 
-    <EditText
-        android:id="@+id/passwordETSU"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/curve_background"
-        android:drawablePadding="12dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:maxLines="1"
-        android:padding="8dp"
-        android:textColor="@color/text_color"
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Female"
+                android:textSize="18sp"
+                android:gravity="center_vertical"
+                android:textColor="#000000"/>
+        </RadioGroup>
+        <EditText
+            android:id="@+id/password_et"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textColor="#000000"
+            android:hint="Password"
+            android:textSize="18sp"
+            android:gravity="center_vertical"
+            android:inputType="textPassword"
+            android:maxLines="1"
 
-        />
+            />
+        <EditText
+            android:id="@+id/confirmPassword_et"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textColor="#000000"
+            android:hint="Confirm Password"
+            android:textSize="18sp"
+            android:gravity="center_vertical"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:padding="8dp"
 
-    <EditText
-        android:id="@+id/confirmPasswordETSU"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/curve_background"
-        android:drawablePadding="12dp"
-        android:ems="10"
-        android:hint="Confirm Password"
-        android:inputType="textPassword"
-        android:maxLines="1"
-        android:padding="8dp"
-        android:textColor="@color/text_color"
+            />
 
-        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-    <Button
-        android:id="@+id/registerBTNSU"
-        style="@style/Base.TextAppearance.AppCompat.Body1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/button_background"
-        android:clickable="true"
-        android:padding="16dp"
-        android:text="Sign UP"
-        android:textAllCaps="false"
-        android:textColor="#ffff"
-        android:textSize="18sp" />
+            <Button
+                android:id="@+id/register_btn"
+                style="@style/Base.TextAppearance.AppCompat.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:clickable="true"
+                android:text="Create Account"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="19sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
 
 
-    <TextView
-        android:id="@+id/goForSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:text="Already have an account? Login Now!"
-        android:textColor="@color/text_color"
+    </LinearLayout>
 
-        />
 
 
 </LinearLayout>

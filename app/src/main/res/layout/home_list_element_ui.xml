@@ -143,6 +143,7 @@
                 android:orientation="horizontal">
 
                 <EditText
+                    android:visibility="visible"
                     android:id="@+id/commentETHAUI"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -159,14 +160,14 @@
                     android:textSize="12sp" />
 
                 <Button
+                    android:visibility="visible"
                     android:id="@+id/submitVoteBTNHAUI"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="35dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/login_btn_background"
+                    android:background="@drawable/ic_menu_send"
                     android:theme="@style/submit_button_style"
-                    android:text="Submit"
                     android:textColor="#000000"
                     android:textAllCaps="false"
                     android:textSize="10sp" />

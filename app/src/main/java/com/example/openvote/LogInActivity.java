@@ -69,9 +69,9 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     private void init() {
-        emailET = findViewById(R.id.emailETLI);
-        passwordET = findViewById(R.id.passwordETLI);
-        loginBTN = findViewById(R.id.loginBTNLI);
+        emailET = findViewById(R.id.email_et);
+        passwordET = findViewById(R.id.password_et);
+        loginBTN = findViewById(R.id.login_btn);
         firebaseAuth = FirebaseAuth.getInstance();
         goForSignUpBTN = findViewById(R.id.goForSignUpBTNLI);
     }

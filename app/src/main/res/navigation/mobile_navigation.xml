@@ -3,24 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_editprofile">
 
     <fragment
-        android:id="@+id/nav_home"
+        android:id="@+id/nav_editprofile"
         android:name="com.example.openvote.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="@string/menu_editprofile"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_usermanual"
         android:name="com.example.openvote.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/menu_usermanual"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_history"
         android:name="com.example.openvote.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/menu_history"
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
